@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Rose Day Sayali 🌹</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #fff;
+      width: 90%;
+      max-width: 350px;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      animation: fadeIn 1.2s ease;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 15px;
+      object-fit: cover;
+    }
+
+    h1 {
+      color: #e75480;
+      font-size: 24px;
+      margin: 15px 0 5px;
+    }
+
+    p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 15px;
+      background: #ff4f81;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #e75480;
+      transform: scale(1.05);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .surprise {
+      display: none;
+      margin-top: 20px;
+      color: #444;
+      font-size: 15px;
+      animation: fadeIn 1s ease;
+      line-height: 1.6;
+    }
+
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp 4s linear infinite;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <!-- 👇 YAHAN TUMHARI PHOTO -->
+    <img src="sayali-prem.jpg" alt="Sayali & Prem">
+
+    <h1>Happy Rose Day Sayali 🌹</h1>
+    <p>Prem has something special for you ❤️</p>
+
+    <button onclick="openSurprise()">Open Surprise 💝</button>
+
+    <div class="surprise" id="surprise">
+      <p>
+        Sayali ❤️<br><br>
+        Tum meri zindagi ka sabse pyara hissa ho.  
+        Har rose tumhari muskaan jaisa lagta hai 🌹  
+        Tumhare saath har din special hota hai.  
+        <br><br>
+        Hamesha tumhara,  
+        <br><b>Prem</b>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function openSurprise() {
+      document.getElementById("surprise").style.display = "block";
+
+      let heartCount = 0;
+      const heartInterval = setInterval(() => {
+        if (heartCount >= 15) {
+          clearInterval(heartInterval);
+          return;
+        }
+        
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+        heartCount++;
+      }, 300);
+    }
+  </script>
+
+</body>
+  </html>
